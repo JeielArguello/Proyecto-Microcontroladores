@@ -1,0 +1,16 @@
+../Core/Src/i2c-lcd_API.c:37:6:GROVE_LCD_send_cmd	32	static
+../Core/Src/i2c-lcd_API.c:46:6:GROVE_LCD_send_data	32	static
+../Core/Src/i2c-lcd_API.c:56:6:GROVE_LCD_setRegBacklight	32	static
+../Core/Src/i2c-lcd_API.c:65:6:GROVE_LCD_Init	16	static
+../Core/Src/i2c-lcd_API.c:88:6:GROVE_LCD_Clear	8	static
+../Core/Src/i2c-lcd_API.c:94:6:GROVE_LCD_Home	8	static
+../Core/Src/i2c-lcd_API.c:100:6:GROVE_LCD_SetCursor	16	static
+../Core/Src/i2c-lcd_API.c:114:6:GROVE_LCD_WriteChar	16	static
+../Core/Src/i2c-lcd_API.c:119:6:GROVE_LCD_WriteString	16	static
+../Core/Src/i2c-lcd_API.c:124:6:GROVE_LCD_DisplayON	8	static
+../Core/Src/i2c-lcd_API.c:130:6:GROVE_LCD_DisplayOFF	8	static
+../Core/Src/i2c-lcd_API.c:136:6:GROVE_LCD_CursorON	8	static
+../Core/Src/i2c-lcd_API.c:142:6:GROVE_LCD_CursorOFF	8	static
+../Core/Src/i2c-lcd_API.c:148:6:GROVE_LCD_BlinkON	8	static
+../Core/Src/i2c-lcd_API.c:154:6:GROVE_LCD_BlinkOFF	8	static
+../Core/Src/i2c-lcd_API.c:162:6:GROVE_LCD_setBacklightRGB	16	static
