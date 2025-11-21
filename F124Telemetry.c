@@ -7,7 +7,7 @@
 
 #define MAX_STR 255
 
-#define F1_PORT 20777
+#define UDP_PORT 20777
 
 
 #pragma comment(lib,"ws2_32.lib")
@@ -140,7 +140,7 @@ int main(void)
     
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
-    addr.sin_port   = htons(F1_PORT);
+    addr.sin_port   = htons(UDP_PORT);
     addr.sin_addr.s_addr = INADDR_ANY;
     bind(sock, (struct sockaddr*)&addr, sizeof(addr));
 
@@ -170,7 +170,7 @@ int main(void)
         }
     }
     
-    printf("Escuchando F1 24 UDP (port %d)\n", F1_PORT);
+    printf("Escuchando UDP (port %d)\n", UDP_PORT);
     
     printf("sizeof(CarTelemetryData)=%zu  sizeof(PacketCarTelemetryData)=%zu\n",
        sizeof(CarTelemetryData), sizeof(PacketCarTelemetryData));
