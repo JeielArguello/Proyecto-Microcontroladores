@@ -119,7 +119,6 @@ int main(void)
     int res;
 	//unsigned char buf[65];
 	wchar_t wstr[MAX_STR];
-	hid_device *handle;
 	int i;
 
 	// Initialize the hidapi library
