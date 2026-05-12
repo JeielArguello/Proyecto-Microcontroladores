@@ -1,5 +1,4 @@
-# Proyecto Microcontroladores - Telemetría Live For Speed a Custom HID y simulacion de 
-volante, acelerador y freno con STM32F411E-DISCOVERY
+# Proyecto Microcontroladores - Telemetría Live For Speed a Custom HID y simulacion de Joystick (volante, acelerador y freno) con STM32F411E-DISCOVERY
 
 ## Introducción
 
@@ -14,12 +13,14 @@ informacion obtenida de la telemetría.
 ## Requerimientos para compilar el programa de telemetría en C
 
 Requiere:
-** Tener instalado Live For Speed o F1 24. Se puede descargar desde https://www.lfs.net/downloads.
 
-** Instalar drivers de ST-LINK para que la pc reconozca el dispositivo Custom HID.
+* Tener instalado Live For Speed o F1 24. Se puede descargar desde https://www.lfs.net/downloads.
+
+* Instalar drivers de ST-LINK para que la pc reconozca el dispositivo Custom HID.
+
 Se pueden descargar desde https://www.st.com/en/development-tools/stsw-link009.html.
 
-** Configurar Live For Speed para que emita telemetría UDP. Esto se hace desde el 
+* Configurar Live For Speed para que emita telemetría UDP. Esto se hace desde el 
 archivo cfg.txt ubicado en la carpeta de instalación de Live For Speed. 
 Agregar o modificar las siguientes líneas:
 ```
@@ -31,16 +32,16 @@ OutGauge ID 1
 ```
 Luego setear al archivo como de solo lectura para evitar que LFS lo sobreescriba.
 
-** Sino se tiene instalado un compilador de C, descargar WinLibs desde 
+* Sino se tiene instalado un compilador de C, descargar WinLibs desde 
 https://winlibs.com/.
 
-** Comando para compilar:
+* Comando para compilar:
 
 ```bash
 gcc LFSOTelemetry.c -Iinclude -Lx64 -lhidapi -lws2_32 -o Telemetria.exe
 ```
 
-** Flashear el firmware en la placa STM32F411E-DISCOVERY usando STM32CubeIde.
+* Flashear el firmware en la placa STM32F411E-DISCOVERY usando STM32CubeIde.
 
 
 ## Explicación del funcionamiento del firmware en el microcontrolador para enviar datos por USB HID
@@ -122,7 +123,7 @@ la respuesta obtenida.
 
 ## Definiciones de los reportes HID
 
-** Reporte de entrada (IN) - Desde el microcontrolador a la PC
+### Reporte de entrada (IN) - Desde el microcontrolador a la PC
 
 | Byte | Descripción            | Rango       |
 |------|------------------------|-------------|
@@ -131,10 +132,11 @@ la respuesta obtenida.
 | 2    | Eje Z (Freno)          | 0 - 255     |
 
 Tamaños de los ejes: 8 bits/ 1 Byte cada uno
+
 Tamaños del reporte IN: 3 Bytes (3 ejes * 1 Byte)
 
 
-** Reporte de salida (OUT) - Desde la PC al microcontrolador
+### Reporte de salida (OUT) - Desde la PC al microcontrolador
 
 Tipo de paquete: 
  - 0: Paquete de inicializacion (6 Bytes RGB)
@@ -149,6 +151,7 @@ Tipo de paquete:
 | 5,6  | IGNORE                 |             |
  
  - 1: Paquete de telemetría (7 Bytes)
+   
 | Byte | Descripción            | Rango       |
 |------|------------------------|-------------|
 | 0    | ID del reporte         | 0x00        |
@@ -158,8 +161,8 @@ Tipo de paquete:
 | 6    | Marcha actual          | 0 - 255     |
 --- --- IGNORE ---
 
-Tamaños del reporte OUT: 7 Bytes (1 Byte ID + 1 Byte Tipo de paquete
- + 2 Byte RPM + 2 Bytes Velocidad + 1 Byte Marcha)
+Tamaños del reporte OUT: 7 Bytes (1 Byte ID + 1 Byte (Tipo de paquete)
+ + 2 Byte (RPM) + 2 Bytes (Velocidad) + 1 Byte (Marcha))
 
 
  Aclaraciones:
